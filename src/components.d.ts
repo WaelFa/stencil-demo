@@ -70,7 +70,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppHome {
-        "onNewTodoTitle"?: (event: CustomEvent<string>) => void;
     }
     interface AppImages {
         "match"?: MatchResults;

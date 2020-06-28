@@ -1,4 +1,6 @@
-import { Component, h } from "@stencil/core";
+import { Component, h, State } from "@stencil/core";
+import { autorun } from "mobx";
+import { loginStore } from "../my-app.store";
 
 @Component({
   tag: "app-root",
@@ -6,7 +8,16 @@ import { Component, h } from "@stencil/core";
   shadow: true,
 })
 export class AppRoot {
+  @State() authenticated: boolean;
+  constructor() {
+    // this updates the local component state property `this.todos`
+    // to allow re-render of
+    autorun(() => {
+      this.authenticated = loginStore.authenticated;
+    });
+  }
   render() {
+    console.log(this.authenticated);
     return (
       <div>
         <header>
@@ -15,11 +26,18 @@ export class AppRoot {
 
         <main>
           <stencil-router>
-            <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url="/" component="app-home" exact={true} />
-              <stencil-route url="/profile" component="app-profile" />
-              <stencil-route url="/images/:animal" component="app-images" />
-            </stencil-route-switch>
+            {this.authenticated ? (
+              <stencil-route-switch scrollTopOffset={0}>
+                <stencil-route url="/" component="app-profile" />
+                <stencil-route url="/images/:animal" component="app-images" />
+                <stencil-route-redirect url="/" />
+              </stencil-route-switch>
+            ) : (
+              <stencil-route-switch scrollTopOffset={0}>
+                <stencil-route url="/" component="app-home" exact={true} />
+                <stencil-route-redirect url="/" />
+              </stencil-route-switch>
+            )}
           </stencil-router>
         </main>
       </div>

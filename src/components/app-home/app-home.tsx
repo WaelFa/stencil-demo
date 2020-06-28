@@ -1,4 +1,5 @@
-import { Component, h, Event, State, EventEmitter } from "@stencil/core";
+import { Component, h, State } from "@stencil/core";
+import { loginStore } from "../my-app.store";
 
 @Component({
   tag: "app-home",
@@ -6,17 +7,13 @@ import { Component, h, Event, State, EventEmitter } from "@stencil/core";
   shadow: true,
 })
 export class AppHome {
-
   @State() admin: string;
   @State() password: string;
-  @Event() newTodoTitle: EventEmitter<string>;
 
-  private handleAddClick(clickEvent: MouseEvent) {
+  private handleLogin(clickEvent: MouseEvent) {
     clickEvent.preventDefault();
     // login
-    this.newTodoTitle.emit(this.admin);
-    console.log(this.admin, this.password);
-
+    loginStore.login(this.admin, this.password);
   }
 
   render() {
@@ -47,15 +44,13 @@ export class AppHome {
               this.password = e.target.value;
             }}
           ></input>
-          <stencil-route-link url='/profile'>
           <button
             type="submit"
             class="add-button"
-            onClick={this.handleAddClick.bind(this)}
+            onClick={this.handleLogin.bind(this)}
           >
-              Login
+            Login
           </button>
-          </stencil-route-link>
         </form>
       </div>
     );

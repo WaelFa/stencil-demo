@@ -1,34 +1,16 @@
-// import {action, computed, observable} from "mobx";
+import {action, observable } from "mobx";
 
 
-// export class Admin {
+export class Login {
 
-//     [x: string]: any;
+    @observable
+    public authenticated : boolean = false;
 
-//     @observable
-//     public admin:String = 'admin';
+    @action
+    public login(admin: string, password: string) {
+        if ((password === "password") && (admin === "admin")) {
+            this.authenticated = true;
+        }
+    }
 
-//     @observable
-//     public password: String = 'password';
-    
-//     constructor() {
-//         // this allows multiple independent mobx instances per page
-//         // (good for isolated web components)
-//         extras.isolateGlobalState();
-//     }
-
-//     @computed
-//     public get unfinishedTodoCount() {
-//         return this.todos
-//             .filter((todo: TodoItem) => !todo.finished).length
-//     }
-
-//     @action
-//     public login(admin: String, password: String) {
-//         if ((admin === 'admin') && (password === 'password')){
-//             console.log('logged')
-//         }
-        
-//     }
-
-// }
+}
