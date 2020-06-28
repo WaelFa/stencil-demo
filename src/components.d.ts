@@ -9,8 +9,12 @@ import { MatchResults, } from "@stencil/router";
 export namespace Components {
     interface AppHome {
     }
-    interface AppProfile {
+    interface AppImages {
         "match": MatchResults;
+    }
+    interface AppLoader {
+    }
+    interface AppProfile {
     }
     interface AppRoot {
     }
@@ -24,6 +28,18 @@ declare global {
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppImagesElement extends Components.AppImages, HTMLStencilElement {
+    }
+    var HTMLAppImagesElement: {
+        prototype: HTMLAppImagesElement;
+        new (): HTMLAppImagesElement;
+    };
+    interface HTMLAppLoaderElement extends Components.AppLoader, HTMLStencilElement {
+    }
+    var HTMLAppLoaderElement: {
+        prototype: HTMLAppLoaderElement;
+        new (): HTMLAppLoaderElement;
     };
     interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
     }
@@ -45,6 +61,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
+        "app-images": HTMLAppImagesElement;
+        "app-loader": HTMLAppLoaderElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
         "image-component": HTMLImageComponentElement;
@@ -54,8 +72,12 @@ declare namespace LocalJSX {
     interface AppHome {
         "onNewTodoTitle"?: (event: CustomEvent<string>) => void;
     }
-    interface AppProfile {
+    interface AppImages {
         "match"?: MatchResults;
+    }
+    interface AppLoader {
+    }
+    interface AppProfile {
     }
     interface AppRoot {
     }
@@ -64,6 +86,8 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
+        "app-images": AppImages;
+        "app-loader": AppLoader;
         "app-profile": AppProfile;
         "app-root": AppRoot;
         "image-component": ImageComponent;
@@ -74,6 +98,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-images": LocalJSX.AppImages & JSXBase.HTMLAttributes<HTMLAppImagesElement>;
+            "app-loader": LocalJSX.AppLoader & JSXBase.HTMLAttributes<HTMLAppLoaderElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "image-component": LocalJSX.ImageComponent & JSXBase.HTMLAttributes<HTMLImageComponentElement>;

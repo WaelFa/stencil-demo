@@ -47,7 +47,7 @@ export class AppHome {
               this.password = e.target.value;
             }}
           ></input>
-          <stencil-route-link url='/profile/stencil'>
+          <stencil-route-link url='/profile'>
           <button
             type="submit"
             class="add-button"

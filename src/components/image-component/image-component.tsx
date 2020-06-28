@@ -41,6 +41,6 @@ export class AppRoot {
     }
   };
   render() {
-    return <img data-src={this.imgSrc} />;
+    return <img class="image-component" data-src={this.imgSrc} />;
   }
 }
