@@ -16,13 +16,6 @@ export class AppImages {
   @State() images: Array<Image>;
   @State() loading: boolean = true;
 
-  normalize(animal: string): string {
-    if (animal) {
-      return animal.substr(0, 1).toUpperCase() + animal.substr(1).toLowerCase();
-    }
-    return "";
-  }
-
   componentWillLoad() {
     let { animal } = this.match.params;
     fetch(`https://my-json-server.typicode.com/WaelFa/json-mock/${animal}`)
