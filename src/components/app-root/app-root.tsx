@@ -24,7 +24,6 @@ export class AppRoot {
     clickEvent.preventDefault();
     // logout
     loginStore.authenticated = false;
-    this.history.replace("/");
   }
 
   render() {
@@ -33,12 +32,14 @@ export class AppRoot {
         <header>
           <h1>Stencil Demo with Mobx</h1>
           {this.authenticated && (
-            <button
-              class="logout-button"
-              onClick={this.handleLogout.bind(this)}
-            >
-              Logout
-            </button>
+            <stencil-route-link url="/">
+              <button
+                class="logout-button"
+                onClick={this.handleLogout.bind(this)}
+              >
+                Logout
+              </button>
+            </stencil-route-link>
           )}
         </header>
         <main>

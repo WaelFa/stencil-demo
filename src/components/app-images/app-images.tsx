@@ -39,7 +39,7 @@ export class AppImages {
         <div class="app-images">
           <div class="app-images-header">
             <h1>Here are some beautiful {animal} pictures</h1>
-            <stencil-route-link url="/profile">
+            <stencil-route-link url="/">
               <h1>back &larr;</h1>
             </stencil-route-link>
           </div>
