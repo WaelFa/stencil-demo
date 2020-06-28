@@ -47,18 +47,16 @@ export class AppHome {
               this.password = e.target.value;
             }}
           ></input>
+          <stencil-route-link url='/profile/stencil'>
           <button
             type="submit"
             class="add-button"
             onClick={this.handleAddClick.bind(this)}
           >
-            Login
+              Login
           </button>
+          </stencil-route-link>
         </form>
-
-        {/* <stencil-route-link url='/profile/stencil'>
-        
-        </stencil-route-link> */}
       </div>
     );
   }
