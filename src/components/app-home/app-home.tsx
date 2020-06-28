@@ -9,11 +9,17 @@ import { loginStore } from "../my-app.store";
 export class AppHome {
   @State() admin: string;
   @State() password: string;
+  @State() loginError: boolean = false;
 
   private handleLogin(clickEvent: MouseEvent) {
     clickEvent.preventDefault();
     // login
     loginStore.login(this.admin, this.password);
+    if (!!loginStore.authenticated) {
+      this.loginError = true;
+    } else {
+      this.loginError = false;
+    }
   }
 
   render() {
@@ -44,6 +50,9 @@ export class AppHome {
               this.password = e.target.value;
             }}
           ></input>
+          {this.loginError && (
+            <p class="error-message">admin username and/or password is wrong</p>
+          )}
           <button
             type="submit"
             class="add-button"

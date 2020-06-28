@@ -52,3 +52,7 @@ label {
   display: block;
   width: 250px !important;
 }
+
+.error-message{
+  color: red;
+}
