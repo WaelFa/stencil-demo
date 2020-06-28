@@ -1,0 +1,54 @@
+.app-home {
+  padding: 10px;
+}
+
+button {
+  background: #5851ff;
+  color: white;
+  margin: 10px 0px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  outline: 0;
+  letter-spacing: 0.04em;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  width: 282px !important;
+}
+
+p {
+  text-align: center;
+}
+
+button:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+.login-form {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center !important;
+  display: block;
+  width: 250px;
+  margin: 10px auto;
+}
+
+.input {
+  width: 242px !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  padding: 16px 20px;
+  border-radius: 2px;
+  border: none;
+  margin: 10px 0px;
+}
+
+label {
+  display: block;
+  width: 250px !important;
+}
