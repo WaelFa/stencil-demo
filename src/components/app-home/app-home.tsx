@@ -15,14 +15,13 @@ export class AppHome {
     clickEvent.preventDefault();
     // login
     loginStore.login(this.admin, this.password);
-    if (!!loginStore.authenticated) {
+    if (!loginStore.authenticated) {
       this.loginError = true;
-    } else {
-      this.loginError = false;
     }
   }
-
+  
   render() {
+    console.log(this.loginError)
     return (
       <div class="app-home">
         <p>
